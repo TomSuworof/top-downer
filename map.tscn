@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://c3ujeioleuium"]
+[gd_scene load_steps=4 format=4 uid="uid://c3ujeioleuium"]
 
 [ext_resource type="TileSet" uid="uid://ct1sg2j0vfyxf" path="res://tile_set.tres" id="1_c7s6e"]
 [ext_resource type="PackedScene" uid="uid://c7ylviutwb6f4" path="res://player_character.tscn" id="2_wijl4"]
+[ext_resource type="PackedScene" uid="uid://c1gi80cim5q7t" path="res://movable_object.tscn" id="3_e0an3"]
 
 [node name="Map" type="Node"]
 
@@ -12,3 +13,9 @@ tile_set = ExtResource("1_c7s6e")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_wijl4")]
 position = Vector2(72, 88)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("3_e0an3")]
+position = Vector2(133, 121)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("3_e0an3")]
+position = Vector2(165, 96)

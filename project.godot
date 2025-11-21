@@ -29,3 +29,7 @@ project/assembly_name="Top Downer"
 [filesystem]
 
 import/blender/enabled=false
+
+[physics]
+
+2d/default_gravity=0.0

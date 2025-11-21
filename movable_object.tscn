@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1gi80cim5q7t"]
+
+[ext_resource type="Script" uid="uid://b1vkj6odwkat6" path="res://movable_object.gd" id="1_qkirx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kedls"]
+size = Vector2(8, 8)
+
+[sub_resource type="Gradient" id="Gradient_kedls"]
+offsets = PackedFloat32Array(0.22826087, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qkirx"]
+gradient = SubResource("Gradient_kedls")
+width = 8
+height = 8
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_qkirx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kedls")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("GradientTexture2D_qkirx")
