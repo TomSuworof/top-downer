@@ -1,6 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7ylviutwb6f4"]
+[gd_scene load_steps=13 format=3 uid="uid://c7ylviutwb6f4"]
 
 [ext_resource type="Script" uid="uid://ct4ltu2ydvf6d" path="res://player_character.gd" id="1_02ohv"]
+[ext_resource type="PackedScene" uid="uid://dgp2iw4oa7fp" path="res://lively_light.tscn" id="2_5up26"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5up26"]
+light_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tfo3t"]
 radius = 6.0
@@ -51,6 +55,8 @@ color = Color(1, 1, 0.4745098, 0.24705882)
 alpha_curve = SubResource("CurveTexture_5up26")
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_5up26")
 motion_mode = 1
 script = ExtResource("1_02ohv")
 
@@ -69,3 +75,6 @@ fixed_fps = 60
 interpolate = false
 fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_02ohv")
+
+[node name="LivelyLight" parent="." instance=ExtResource("2_5up26")]
+position = Vector2(1, 0)

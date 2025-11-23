@@ -14,11 +14,13 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if velocity.length_squared() <= 1.0:
-		return
-	velocity *= 1 - delta * drag
-	if move_and_slide():
-		resolve_collisions()
+	if velocity.length_squared() > 1.0:
+		velocity *= 1 - delta * drag
+		if move_and_slide():
+			resolve_collisions()
+	else:
+		position = round(position)
+		velocity = Vector2.ZERO
 	
 	
 func apply_impact(impact_velocity: Vector2) -> void:
