@@ -1,4 +1,7 @@
+class_name Detector
 extends Area2D
+
+signal validity_changed(valid: bool)
 
 ## Colors for detector when its disabled and enabled
 @export_color_no_alpha var invalid_color := Color.RED
@@ -36,6 +39,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(_body: Node2D) -> void:
 	if _object_count == 0:
 		sprite.modulate = valid_color
+		validity_changed.emit(true)
 	_object_count += 1
 
 
@@ -43,3 +47,4 @@ func _on_body_exited(_body: Node2D) -> void:
 	_object_count -= 1
 	if _object_count == 0:
 		_pulse_progress = 0
+		validity_changed.emit(false)
