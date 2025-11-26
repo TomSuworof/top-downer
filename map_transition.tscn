@@ -1,0 +1,159 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5r3rafvm3qkf"]
+
+[ext_resource type="Script" uid="uid://cg4xycwrfkt2u" path="res://map_transition.gd" id="1_t1oyb"]
+
+[sub_resource type="Animation" id="Animation_c8hr4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../LeftSideRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../RightSideRect:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t1oyb"]
+resource_name = "enter_map"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../LeftSideRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../RightSideRect:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(1e-05, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oj0wd"]
+resource_name = "exit_map"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../LeftSideRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../RightSideRect:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1), Vector2(-1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oj0wd"]
+_data = {
+&"RESET": SubResource("Animation_c8hr4"),
+&"enter_map": SubResource("Animation_t1oyb"),
+&"exit_map": SubResource("Animation_oj0wd")
+}
+
+[node name="MapTransition" type="Node" node_paths=PackedStringArray("animation_player")]
+process_mode = 3
+script = ExtResource("1_t1oyb")
+animation_player = NodePath("MyAnimationPlayer")
+
+[node name="MyAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasLayer/FadeRect")
+libraries = {
+&"": SubResource("AnimationLibrary_oj0wd")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 400.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
+
+[node name="LeftSideRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 400.0
+offset_bottom = 240.0
+scale = Vector2(1e-05, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="RightSideRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 400.0
+offset_right = 800.0
+offset_bottom = 240.0
+scale = Vector2(-1, 1)
+color = Color(0, 0, 0, 1)
