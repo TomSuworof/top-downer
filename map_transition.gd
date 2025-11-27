@@ -7,13 +7,11 @@ var root_window : Window
 
 func _ready() -> void:
 	root_window = get_tree().root
-	print(animation_player)
 	root_window.remove_child.call_deferred(self)
 
 
 func play_exit_map() -> void:
 	root_window.add_child(self)
-	print(animation_player)
 	animation_player.play("exit_map")
 	await animation_player.animation_finished
 
