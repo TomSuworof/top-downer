@@ -3,11 +3,26 @@ extends CharacterBody2D
 ## Speed in pixels per second.
 @export_range(0, 1000) var speed := 60
 
+var last_position: Vector2
+var travel_distance := 0.0
+
+
+func _ready() -> void:
+	last_position = position
+	HUD.show_travel_distance(travel_distance)
+
 
 func _physics_process(_delta: float) -> void:
 	get_player_input()
 	if move_and_slide():
 		resolve_collisions()
+
+	travel_distance += last_position.distance_to(position)
+	last_position = position
+	
+
+func _process(_delta: float) -> void:
+	HUD.show_travel_distance(travel_distance)
 	
 	
 func get_player_input() -> void:

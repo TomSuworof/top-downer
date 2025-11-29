@@ -22,6 +22,7 @@ func _ready() -> void:
 			
 	Main.map_loaded(self)
 	HUD.show_map_info(self)
+	HUD.show_map_detector_count(valid_detectors_count, registered_detectors_count)
 	
 	
 func _process(delta: float) -> void:
@@ -32,6 +33,7 @@ func _process(delta: float) -> void:
 func _on_detector_validity_changed(valid: bool) -> void:
 	if valid:
 		valid_detectors_count += 1
+		HUD.show_map_detector_count(valid_detectors_count, registered_detectors_count)
 		if valid_detectors_count == registered_detectors_count:
 			_update_best_time()
 			Main.load_next_map()

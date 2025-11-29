@@ -3,6 +3,9 @@ extends CanvasLayer
 
 @export var map_name_label: Label
 @export var map_time_label: Label
+@export var traveled_distance_label: Label
+@export var map_detector_count_label: Label
+
 @export var new_best_map_time_label: Label
 
 
@@ -25,3 +28,11 @@ func show_map_time(time: float) -> void:
 func show_new_best_map_time(new_time: int) ->void:
 	new_best_map_time_label.text = "New best time: %ds" % new_time
 	new_best_map_time_label.visible = true
+
+
+func show_map_detector_count(valid: int, total: int) -> void:
+	map_detector_count_label.text = "%d / %d" % [valid, total]
+	
+
+func show_travel_distance(distance: float) -> void:
+	traveled_distance_label.text = "%dpx" % distance
