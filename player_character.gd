@@ -10,7 +10,6 @@ var travel_distance := 0.0
 
 func _ready() -> void:
 	last_position = position
-	HUD.show_travel_distance(travel_distance)
 
 
 func _physics_process(_delta: float) -> void:

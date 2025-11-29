@@ -47,23 +47,31 @@ func _on_detector_validity_changed(valid: bool) -> void:
 	
 func _update_best_scores() -> void:
 	var new_time := floori(current_map_time)
-	if (
-		not map_save_data.has(KEY_BEST_TIME) 
-		or 
-		new_time < map_save_data[KEY_BEST_TIME]
-	):
+	if not has_best_time() or new_time < get_best_time():
 		map_save_data[KEY_BEST_TIME] = new_time
 	else:
 		new_time = -1
 	
 	var new_travel_distance := floori(player_character.travel_distance)
-	if (
-		not map_save_data.has(KEY_BEST_TRAVEL_DISTANCE) 
-		or 
-		new_travel_distance < map_save_data[KEY_BEST_TRAVEL_DISTANCE]
-	):
+	if not has_best_travel_distance() or new_travel_distance < get_best_travel_distance():
 		map_save_data[KEY_BEST_TRAVEL_DISTANCE] = new_travel_distance
 	else:
 		new_travel_distance = -1
 
 	HUD.show_new_best_map_scores(new_time, new_travel_distance)
+	
+
+func get_best_time() -> int:
+	return map_save_data[KEY_BEST_TIME]
+	
+
+func has_best_time() -> bool:
+	return map_save_data.has(KEY_BEST_TIME)
+	
+
+func get_best_travel_distance() -> int:
+	return map_save_data[KEY_BEST_TRAVEL_DISTANCE]
+	
+
+func has_best_travel_distance() -> bool:
+	return map_save_data.has(KEY_BEST_TRAVEL_DISTANCE)
