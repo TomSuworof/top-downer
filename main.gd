@@ -25,6 +25,8 @@ func _ready() -> void:
 			game_save_data = {}
 	
 	game_save_data[KEY_GAME_SAVE_VERSION] = GAME_SAVE_VERSION
+	if not game_save_data.has(KEY_PER_MAP_DATA):
+		game_save_data[KEY_PER_MAP_DATA] = {}
 
 
 func can_continue() -> bool:
