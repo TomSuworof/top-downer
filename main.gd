@@ -54,7 +54,7 @@ func load_next_map() -> void:
 	var next_map_path := '.'.join(split_path)
 	
 	if not ResourceLoader.exists(next_map_path):
-		exit_to_main_menu()
+		MainMenu.open_main_menu()
 		return
 	
 	load_map(next_map_path)
@@ -83,17 +83,3 @@ func map_loaded(map: GameMap) -> void:
 	map.map_save_data = per_map_data[map_path]
 	var game_save_file := FileAccess.open(GAME_SAVE_PATH, FileAccess.WRITE)
 	game_save_file.store_var(game_save_data)
-
-
-func exit_to_main_menu() -> void:
-	var menu_scene = MainMenu.scene_file_path
-	ResourceLoader.load_threaded_request(menu_scene)
-
-	await MapTransition.play_exit_map()
-	
-	get_tree().change_scene_to_packed(
-		ResourceLoader.load_threaded_get(MainMenu.scene_file_path)
-	)
-	
-	HUD.visible = false
-	await MapTransition.play_enter_map()
