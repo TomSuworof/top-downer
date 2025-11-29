@@ -64,8 +64,8 @@ func load_map(map_path: String) -> void:
 	get_tree().paused = false
 
 
-func map_loaded(map_path: String) -> void:
-	current_map_path = map_path
+func map_loaded(map: GameMap) -> void:
+	current_map_path = map.scene_file_path
 	
 	var game_save_file := FileAccess.open(GAME_SAVE_PATH, FileAccess.WRITE)
 	game_save_file.store_var({

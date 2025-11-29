@@ -8,6 +8,7 @@
 
 [node name="Map" type="Node"]
 script = ExtResource("1_nj66f")
+map_name = "Map 2"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.14117648, 0.16078432, 0.23137255, 1)

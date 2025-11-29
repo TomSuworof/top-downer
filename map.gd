@@ -1,4 +1,8 @@
+class_name GameMap
 extends Node
+
+
+@export var map_name := "Map"
 
 
 var registered_detectors_count := 0
@@ -12,7 +16,8 @@ func _ready() -> void:
 			registered_detectors_count += 1
 			detector.validity_changed.connect(_on_detector_validity_changed)
 			
-	Main.map_loaded(self.scene_file_path)
+	Main.map_loaded(self)
+	HUD.show_map_info(self)
 
 
 func _on_detector_validity_changed(valid: bool) -> void:

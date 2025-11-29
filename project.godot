@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Main="*res://main.gd"
 MapTransition="*res://map_transition.tscn"
+HUD="*res://hud.tscn"
 
 [display]
 
