@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://chl7i4yk6ffsn" path="res://hud.gd" id="1_37p78"]
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("map_name_label", "map_time_label", "traveled_distance_label", "map_detector_count_label", "new_best_map_time_label")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("map_name_label", "map_time_label", "traveled_distance_label", "map_detector_count_label", "new_best_map_scores_label")]
 layer = 3
 script = ExtResource("1_37p78")
 map_name_label = NodePath("MapNameLabel")
 map_time_label = NodePath("MapTimeLabel")
 traveled_distance_label = NodePath("TravelDistance")
 map_detector_count_label = NodePath("MapDetectorCountLabel")
-new_best_map_time_label = NodePath("NewBestMapTimeLabel")
+new_best_map_scores_label = NodePath("NewBestMapScoresLabel")
 
 [node name="MapNameLabel" type="Label" parent="."]
 offset_left = 16.0
@@ -26,18 +26,16 @@ theme_override_font_sizes/font_size = 11
 text = "0s"
 horizontal_alignment = 2
 
-[node name="NewBestMapTimeLabel" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TravelDistance" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -23.0
+offset_right = 56.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "0px"
 
 [node name="MapDetectorCountLabel" type="Label" parent="."]
 anchors_preset = 2
@@ -52,13 +50,15 @@ theme_override_font_sizes/font_size = 11
 text = "00 / 00"
 horizontal_alignment = 2
 
-[node name="TravelDistance" type="Label" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = -23.0
-offset_right = 56.0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 11
-text = "0px"
+[node name="NewBestMapScoresLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
