@@ -4,12 +4,15 @@ extends CharacterBody2D
 ## Speed in pixels per second.
 @export_range(0, 1000) var speed := 60
 
+@export var joystick: Joystick
+
 var last_position: Vector2
 var travel_distance := 0.0
 
 
 func _ready() -> void:
 	last_position = position
+	joystick.visible = DisplayServer.is_touchscreen_available()
 
 
 func _physics_process(_delta: float) -> void:
@@ -26,7 +29,11 @@ func _process(_delta: float) -> void:
 	
 	
 func get_player_input() -> void:
-	var vector := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var vector: Vector2
+	if joystick.visible:
+		vector = joystick.get_joystick_direction()
+	else:
+		vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = vector * speed
 
 
