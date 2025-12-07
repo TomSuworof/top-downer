@@ -1,5 +1,5 @@
 class_name MovableObject
-extends CharacterBody2D
+extends InteractiveObject
 
 
 @export_range(0.0, 10.0) var drag := 5.0

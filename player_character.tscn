@@ -10,12 +10,12 @@ light_mode = 1
 [sub_resource type="CircleShape2D" id="CircleShape2D_tfo3t"]
 radius = 6.0
 
-[sub_resource type="Gradient" id="Gradient_tfo3t"]
+[sub_resource type="Gradient" id="Gradient_4akcp"]
 offsets = PackedFloat32Array(0.28444445, 0.5555556, 0.6577778)
 colors = PackedColorArray(1, 1, 1, 1, 0.80940944, 0.9458794, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_02ohv"]
-gradient = SubResource("Gradient_tfo3t")
+gradient = SubResource("Gradient_4akcp")
 width = 14
 height = 14
 fill = 1
@@ -25,12 +25,12 @@ fill_from = Vector2(0.5, 0.5)
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_02ohv"]
+[sub_resource type="Gradient" id="Gradient_0hvvw"]
 offsets = PackedFloat32Array(0, 0.38222224, 0.63555557, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.95555556, 0.95555556, 0.95555556, 1, 0.13271606, 0.13271606, 0.13271606, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5up26"]
-gradient = SubResource("Gradient_02ohv")
+gradient = SubResource("Gradient_0hvvw")
 width = 8
 height = 8
 fill = 1
@@ -40,7 +40,7 @@ fill_from = Vector2(0.5, 0.5)
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.27548808, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_5up26"]
+[sub_resource type="CurveTexture" id="CurveTexture_6qc1w"]
 curve = SubResource("Curve_02ohv")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_02ohv"]
@@ -53,14 +53,15 @@ emission_ring_inner_radius = 2.0
 emission_ring_cone_angle = 90.0
 gravity = Vector3(0, 0, 0)
 color = Color(1, 1, 0.4745098, 0.24705882)
-alpha_curve = SubResource("CurveTexture_5up26")
+alpha_curve = SubResource("CurveTexture_6qc1w")
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("joystick")]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("joystick", "collission_shape")]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_5up26")
 motion_mode = 1
 script = ExtResource("1_02ohv")
 joystick = NodePath("Joystick")
+collission_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tfo3t")

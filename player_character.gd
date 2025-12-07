@@ -1,5 +1,5 @@
 class_name PlayerCharacter
-extends CharacterBody2D
+extends InteractiveObject
 
 ## Speed in pixels per second.
 @export_range(0, 1000) var speed := 60
@@ -43,3 +43,8 @@ func resolve_collisions() -> void:
 		var body := collision.get_collider()
 		if body is MovableObject:
 			body.apply_impact(velocity)
+
+
+func displace(offset: Vector2) -> void:
+	super(offset)
+	last_position = position
