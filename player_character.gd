@@ -19,7 +19,7 @@ func _physics_process(_delta: float) -> void:
 	get_player_input()
 	if move_and_slide():
 		resolve_collisions()
-
+	velocity = Vector2.ZERO
 	travel_distance += last_position.distance_to(position)
 	last_position = position
 	
@@ -34,7 +34,7 @@ func get_player_input() -> void:
 		vector = joystick.get_joystick_direction()
 	else:
 		vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = vector * speed
+	velocity += vector * speed
 
 
 func resolve_collisions() -> void:

@@ -15,9 +15,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if velocity.length_squared() > 1.0:
-		velocity *= 1 - delta * drag
 		if move_and_slide():
 			resolve_collisions()
+		velocity *= 1 - delta * drag
 	else:
 		position = round(position)
 		velocity = Vector2.ZERO
