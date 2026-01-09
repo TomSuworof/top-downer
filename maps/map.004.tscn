@@ -27,11 +27,11 @@ destination = NodePath("../TeleporterDestination")
 [node name="TeleporterDestination" parent="." instance=ExtResource("5_p222n")]
 position = Vector2(278, 121)
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("4_p222n")]
-position = Vector2(118, 123)
-
 [node name="Detector" parent="." instance=ExtResource("3_kua0t")]
 position = Vector2(358, 122)
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("4_p222n")]
+position = Vector2(118, 123)
 
 [node name="MovableObject" parent="." instance=ExtResource("5_v62sp")]
 position = Vector2(312, 118)

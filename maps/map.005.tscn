@@ -25,11 +25,11 @@ scale = Vector2(1.3, 1.3)
 length = 80
 speed = 30
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("5_qbuip")]
-position = Vector2(120, 120)
-
 [node name="Detector" parent="." instance=ExtResource("6_3wvwq")]
 position = Vector2(360, 120)
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("5_qbuip")]
+position = Vector2(120, 120)
 
 [node name="MovableObject" parent="." instance=ExtResource("7_kma3l")]
 position = Vector2(144, 120)
