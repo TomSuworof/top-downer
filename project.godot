@@ -25,6 +25,7 @@ Main="*res://main.gd"
 MapTransition="*res://map_transition.tscn"
 HUD="*res://hud.tscn"
 MainMenu="*res://main_menu.tscn"
+PauseMenu="*res://pause_menu.tscn"
 
 [display]
 

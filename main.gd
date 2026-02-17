@@ -13,6 +13,8 @@ const KEY_PER_MAP_DATA := "per_map_data"
 
 var game_save_data: Dictionary
 
+var playing_map := false
+
 
 func _ready() -> void:
 	if FileAccess.file_exists(GAME_SAVE_PATH):
@@ -27,6 +29,11 @@ func _ready() -> void:
 	game_save_data[KEY_GAME_SAVE_VERSION] = GAME_SAVE_VERSION
 	if not game_save_data.has(KEY_PER_MAP_DATA):
 		game_save_data[KEY_PER_MAP_DATA] = {}
+
+
+func _process(_delta: float) -> void:
+	if playing_map and Input.is_action_just_pressed("ui_cancel"):
+		PauseMenu.activate()
 
 
 func can_continue() -> bool:
@@ -83,3 +90,8 @@ func map_loaded(map: GameMap) -> void:
 	map.map_save_data = per_map_data[map_path]
 	var game_save_file := FileAccess.open(GAME_SAVE_PATH, FileAccess.WRITE)
 	game_save_file.store_var(game_save_data)
+	playing_map = true
+	
+	
+func restart_map() -> void:
+	load_map(game_save_data[KEY_MAP_PATH])
