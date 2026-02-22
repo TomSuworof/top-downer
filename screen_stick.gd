@@ -26,7 +26,10 @@ func _input(event: InputEvent) -> void:
 			
 			
 func _process(_delta: float) -> void:
-	joystick_knob.global_position = get_viewport().get_mouse_position()
+	var mouse_position := get_viewport().get_mouse_position()
+	if mouse_position.distance_to(joystick_center) > max_distance:
+		return
+	joystick_knob.global_position = mouse_position
 	joystick_knob.position = joystick_center + (joystick_knob.position - joystick_center).limit_length(max_distance)
 	
 	
