@@ -10,10 +10,15 @@ func _ready() -> void:
 
 
 func _on_new_game_button_pressed() -> void:
+	if Main.playing_map:
+		return
 	Main.load_map(first_scene.resource_path)
+	continue_button.disabled = true
 
 
 func _on_continue_button_pressed() -> void:
+	if Main.playing_map:
+		return
 	Main.load_continue_map()
 
 
