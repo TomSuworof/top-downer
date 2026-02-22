@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr1d02rluq5dm"]
+[gd_scene format=3 uid="uid://dr1d02rluq5dm"]
 
 [ext_resource type="Script" uid="uid://cqlsudw6d2nrr" path="res://screen_stick.gd" id="1_n7hsg"]
 
@@ -25,17 +25,17 @@ height = 24
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Joystick" type="CanvasLayer" node_paths=PackedStringArray("joystick_background", "joystick_knob")]
+[node name="Joystick" type="CanvasLayer" unique_id=1157598834 node_paths=PackedStringArray("joystick_background", "joystick_knob")]
 script = ExtResource("1_n7hsg")
 joystick_background = NodePath("JoystickBackground")
 joystick_knob = NodePath("JoystickBackground/JoystickKnob")
 
-[node name="JoystickBackground" type="TouchScreenButton" parent="."]
+[node name="JoystickBackground" type="TouchScreenButton" parent="." unique_id=2040078843]
 position = Vector2(16, 190)
 scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("GradientTexture2D_n7hsg")
 shape = SubResource("CircleShape2D_n7hsg")
 
-[node name="JoystickKnob" type="Sprite2D" parent="JoystickBackground"]
+[node name="JoystickKnob" type="Sprite2D" parent="JoystickBackground" unique_id=572552274]
 position = Vector2(32, 32)
 texture = SubResource("GradientTexture2D_4rpxk")

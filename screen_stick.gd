@@ -18,6 +18,9 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
+		var touch_event = (event as InputEventScreenTouch)
+		if touch_event.position.distance_to(joystick_background.global_position) > max_distance:
+			return
 		if event.pressed:
 			set_process(true)
 		elif not event.pressed:
@@ -26,10 +29,7 @@ func _input(event: InputEvent) -> void:
 			
 			
 func _process(_delta: float) -> void:
-	var mouse_position := get_viewport().get_mouse_position()
-	if mouse_position.distance_to(joystick_center) > max_distance:
-		return
-	joystick_knob.global_position = mouse_position
+	joystick_knob.global_position = get_viewport().get_mouse_position()
 	joystick_knob.position = joystick_center + (joystick_knob.position - joystick_center).limit_length(max_distance)
 	
 	
