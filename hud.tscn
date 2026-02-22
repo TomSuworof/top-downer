@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://chl7i4yk6ffsn" path="res://hud.gd" id="1_37p78"]
 [ext_resource type="PackedScene" uid="uid://dr1d02rluq5dm" path="res://screen_stick.tscn" id="2_64ctp"]
+[ext_resource type="Texture2D" uid="uid://c6dchsojj73os" path="res://pause_button_icon.png" id="3_8sq4i"]
 
-[node name="HUD" type="CanvasLayer" unique_id=1144799514 node_paths=PackedStringArray("map_name_label", "map_time_label", "traveled_distance_label", "map_detector_count_label", "new_best_map_scores_label", "joystick")]
+[node name="HUD" type="CanvasLayer" unique_id=1144799514 node_paths=PackedStringArray("map_name_label", "map_time_label", "traveled_distance_label", "map_detector_count_label", "new_best_map_scores_label", "joystick", "pause_button")]
 layer = 3
 script = ExtResource("1_37p78")
 map_name_label = NodePath("MapNameLabel")
@@ -12,6 +13,8 @@ traveled_distance_label = NodePath("TravelDistance")
 map_detector_count_label = NodePath("MapDetectorCountLabel")
 new_best_map_scores_label = NodePath("NewBestMapScoresLabel")
 joystick = NodePath("Joystick")
+pause_button = NodePath("PauseButton")
+metadata/_edit_horizontal_guides_ = [-110.0]
 
 [node name="MapNameLabel" type="Label" parent="." unique_id=1926937712]
 offset_left = 16.0
@@ -21,8 +24,8 @@ theme_override_font_sizes/font_size = 11
 text = "Map Name"
 
 [node name="MapTimeLabel" type="Label" parent="." unique_id=2080606570]
-offset_left = 324.0
-offset_right = 384.0
+offset_left = 299.0
+offset_right = 359.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 11
 text = "0s"
@@ -67,3 +70,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Joystick" parent="." unique_id=2145736377 instance=ExtResource("2_64ctp")]
+
+[node name="PauseButton" type="Button" parent="." unique_id=382267278]
+offset_left = 369.0
+offset_right = 384.0
+offset_bottom = 15.0
+icon = ExtResource("3_8sq4i")
+expand_icon = true
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

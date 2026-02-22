@@ -10,6 +10,8 @@ extends CanvasLayer
 
 @export var joystick: Joystick
 
+@export var pause_button: Button
+
 
 var map_time_text := "%ds"
 var map_travel_distance_text := "%dpx"
@@ -66,3 +68,7 @@ func show_new_best_map_scores(time: int, travel_distance: float) ->void:
 
 	new_best_map_scores_label.text = "\n".join(scores_txt)
 	new_best_map_scores_label.visible = true
+	
+
+func _on_pause_button_pressed() -> void:
+	PauseMenu.activate()
