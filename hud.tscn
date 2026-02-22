@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2vqulwjcmjem"]
+[gd_scene format=3 uid="uid://c2vqulwjcmjem"]
 
 [ext_resource type="Script" uid="uid://chl7i4yk6ffsn" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="PackedScene" uid="uid://dr1d02rluq5dm" path="res://screen_stick.tscn" id="2_64ctp"]
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("map_name_label", "map_time_label", "traveled_distance_label", "map_detector_count_label", "new_best_map_scores_label")]
+[node name="HUD" type="CanvasLayer" unique_id=1144799514 node_paths=PackedStringArray("map_name_label", "map_time_label", "traveled_distance_label", "map_detector_count_label", "new_best_map_scores_label", "joystick")]
 layer = 3
 script = ExtResource("1_37p78")
 map_name_label = NodePath("MapNameLabel")
@@ -10,15 +11,16 @@ map_time_label = NodePath("MapTimeLabel")
 traveled_distance_label = NodePath("TravelDistance")
 map_detector_count_label = NodePath("MapDetectorCountLabel")
 new_best_map_scores_label = NodePath("NewBestMapScoresLabel")
+joystick = NodePath("Joystick")
 
-[node name="MapNameLabel" type="Label" parent="."]
+[node name="MapNameLabel" type="Label" parent="." unique_id=1926937712]
 offset_left = 16.0
 offset_right = 75.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 11
 text = "Map Name"
 
-[node name="MapTimeLabel" type="Label" parent="."]
+[node name="MapTimeLabel" type="Label" parent="." unique_id=2080606570]
 offset_left = 324.0
 offset_right = 384.0
 offset_bottom = 23.0
@@ -26,7 +28,7 @@ theme_override_font_sizes/font_size = 11
 text = "0s"
 horizontal_alignment = 2
 
-[node name="TravelDistance" type="Label" parent="."]
+[node name="TravelDistance" type="Label" parent="." unique_id=2040703418]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -38,7 +40,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 11
 text = "0px"
 
-[node name="MapDetectorCountLabel" type="Label" parent="."]
+[node name="MapDetectorCountLabel" type="Label" parent="." unique_id=148756616]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -51,7 +53,7 @@ theme_override_font_sizes/font_size = 11
 text = "00 / 00"
 horizontal_alignment = 2
 
-[node name="NewBestMapScoresLabel" type="Label" parent="."]
+[node name="NewBestMapScoresLabel" type="Label" parent="." unique_id=145328815]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -63,3 +65,5 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Joystick" parent="." unique_id=2145736377 instance=ExtResource("2_64ctp")]

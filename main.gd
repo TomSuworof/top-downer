@@ -68,6 +68,8 @@ func load_next_map() -> void:
 
 
 func load_map(map_path: String) -> void:
+	HUD.joystick.visible = false
+	
 	ResourceLoader.load_threaded_request(map_path)
 	
 	get_tree().paused = true
@@ -78,6 +80,8 @@ func load_map(map_path: String) -> void:
 	)
 	
 	await MapTransition.play_enter_map()
+	
+	HUD.joystick.visible = DisplayServer.is_touchscreen_available()
 	get_tree().paused = false
 
 

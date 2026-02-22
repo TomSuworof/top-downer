@@ -8,6 +8,9 @@ extends CanvasLayer
 
 @export var new_best_map_scores_label: Label
 
+@export var joystick: Joystick
+
+
 var map_time_text := "%ds"
 var map_travel_distance_text := "%dpx"
 
@@ -15,6 +18,7 @@ var map_travel_distance_text := "%dpx"
 func _ready() -> void:
 	visible = false
 	new_best_map_scores_label.visible = false
+	joystick.visible = false
 
 
 func show_map_info(map: GameMap) -> void:
