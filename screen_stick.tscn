@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cqlsudw6d2nrr" path="res://screen_stick.gd" id="1_n7hsg"]
 
 [sub_resource type="Gradient" id="Gradient_1lmuv"]
-offsets = PackedFloat32Array(0.6533333, 0.68)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0.5923695, 0.6566265, 0.70883536)
+colors = PackedColorArray(0.44705883, 0.44705883, 0.44705883, 0, 1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_n7hsg"]
 gradient = SubResource("Gradient_1lmuv")
@@ -15,13 +15,13 @@ fill_from = Vector2(0.5, 0.5)
 radius = 30.0
 
 [sub_resource type="Gradient" id="Gradient_n7hsg"]
-offsets = PackedFloat32Array(0.6844444, 0.6933333)
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0.6844444, 0.7248996)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4rpxk"]
 gradient = SubResource("Gradient_n7hsg")
-width = 24
-height = 24
+width = 48
+height = 48
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
