@@ -1,6 +1,8 @@
+@tool
 class_name TeleporterDestination
 extends Area2D
 
+signal position_changed
 signal validity_changed(valid: bool)
 
 @export var sprite: Sprite2D
@@ -8,6 +10,11 @@ signal validity_changed(valid: bool)
 @export var particles: GPUParticles2D
 
 var objects_count := 0
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSFORM_CHANGED:
+		position_changed.emit()
 
 
 func _on_body_entered(_body: Node2D) -> void:
