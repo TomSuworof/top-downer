@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cuh1fnebd0wef"]
+
+[ext_resource type="Shader" uid="uid://dst85gu7pvawa" path="res://energy_bareer/energy_bareer.gdshader" id="1_fogvu"]
+[ext_resource type="Script" uid="uid://btn2oc6suqtw6" path="res://energy_bareer/energy_bareer.gd" id="1_smejx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smejx"]
+resource_local_to_scene = true
+size = Vector2(32, 8)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1wfb2"]
+resource_local_to_scene = true
+shader = ExtResource("1_fogvu")
+shader_parameter/segment_count = 4.0
+shader_parameter/pulse_offsets = Vector4(0, 0, 0, 0)
+shader_parameter/pulse_speeds = Vector4(2, 6, -4, -8)
+shader_parameter/wave_wiggles_speeds = Vector4(2.5, 4, 10, -8)
+
+[node name="EnergyBareer" type="StaticBody2D" unique_id=231027291 node_paths=PackedStringArray("collision_shape", "line")]
+collision_layer = 4
+script = ExtResource("1_smejx")
+collision_shape = NodePath("CollisionShape2D")
+line = NodePath("Line2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1923904851]
+visible = false
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_smejx")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=956054618]
+material = SubResource("ShaderMaterial_1wfb2")
+points = PackedVector2Array(0, 0, 32, 0)
+width = 8.0
+texture_mode = 1

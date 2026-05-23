@@ -57,6 +57,7 @@ alpha_curve = SubResource("CurveTexture_6qc1w")
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=2111841118 node_paths=PackedStringArray("collission_shape")]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_5up26")
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_02ohv")
 collission_shape = NodePath("CollisionShape2D")
